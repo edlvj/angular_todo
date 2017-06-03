@@ -82,4 +82,5 @@ test:
 production:
   <<: *default
   database: angular_todo_production
+  username: angular_todo
   password: <%= ENV['ANGULAR_TODO_DATABASE_PASSWORD'] %>
