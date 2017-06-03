@@ -1,0 +1,8 @@
+%script{:id => "new_project.html", :type => "text/ng-template"}
+  .modal-header
+    %h3#modal-title.modal-title {{ 'CREATE_PROJECT' | translate }}
+  #modal-body.modal-body
+    %form#new_project(ng-submit='create(newProjectForm)' ng-init="newProjectForm = {}")
+      %div.form-group
+        %input.form-control(ng_model='newProjectForm.title' required='' placeholder='Enter name for new project' name='title')
+      %button.btn.btn-primary(type='submit') {{ 'CREATE_PROJECT' | translate }}

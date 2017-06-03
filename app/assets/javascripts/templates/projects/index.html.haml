@@ -1,0 +1,13 @@
+%div.container
+  %div.row
+    %div.col-md-12
+      %div.text-center
+        %h3 SIMPLE TODO LIST 
+        %h5 FROM RUBY GARAGE  
+        %project-show
+    %div.text-center
+      %button.btn.btn-primary.btn-lg(ng-click='projects.new()') {{ 'ADD_PROJECT' | translate }}
+  %div{ng_include: "'projects/_new.html'"}
+  %div{ng_include: "'projects/_edit.html'"}
+  %div{ng_include: "'tasks/_edit.html'"}
+  %button(ng-click='signOut()' class="btn btn-danger logout") {{ 'LOG OUT' | translate }}

@@ -1,0 +1,3 @@
+%form.form-inline#new_comment(ng-submit='comments.create(newCommentForm, task)' ng-init="newCommentForm = {}")
+  %input.form-control.input-sm(ng_model='newCommentForm.title' required='' placeholder='Enter new comment' type= 'text' name='title')
+  %button.btn(type='submit')  {{ 'ADD_COMMENT' | translate }}

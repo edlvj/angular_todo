@@ -1,0 +1,12 @@
+%p(ng_if= 'task.comments.length == []') {{ 'NO_COMMENT' | translate }}
+%ul.list-group(ng_repeat= 'comment in task.comments')
+  %li.list-group-item 
+    .row
+      .col-md-9.col-sm-9
+        %a(ng-bind= "comment.title")
+      .col-md-3.col-sm-3 
+        %a{ng_if: 'comment.attachment.url', href: '{{comment.attachment.url}}', target: 'blank'}
+          %span.fa.fa-file
+        %i.glyphicon.glyphicon-paperclip.grey(ngf_select = "comments.update(task, comment, $file)" ng_model= 'attachment')
+        %a#drop_comment(ng_click="comments.delete(task, comment)")
+          %i.glyphicon.glyphicon-trash.grey
