@@ -33,7 +33,7 @@
     "font-awesome": "~4.7.0",
     "angular-flash-alert": "^2.4.0",
     "angular-ui-sortable": "*"
-  }
+  },
   "resolutions": {
     "angular": "1.5.3"
   }
