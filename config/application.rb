@@ -7,6 +7,8 @@ Bundler.require(*Rails.groups)
 
 module Workspace
   class Application < Rails::Application
+    
+    config.assets.initialize_on_precompile = false
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
     config.active_record.raise_in_transactional_callbacks = true
