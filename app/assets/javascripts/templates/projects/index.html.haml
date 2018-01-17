@@ -6,7 +6,11 @@
         %h5 FROM RUBY GARAGE  
         %project-show
     %div.text-center
-      %button.btn.btn-primary.btn-lg(ng-click='projects.new()') {{ 'ADD_PROJECT' | translate }}
+      %button.btn.btn-primary.btn-lg(ng-click='projects.new()') 
+        %i.glyphicon.glyphicon-plus.new-project-plus
+        {{ 'ADD_PROJECT' | translate }}
+    %div.text-center.footer
+      &copy; Ruby Garage
   %div{ng_include: "'projects/_new.html'"}
   %div{ng_include: "'projects/_edit.html'"}
   %div{ng_include: "'tasks/_edit.html'"}

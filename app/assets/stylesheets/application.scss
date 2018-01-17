@@ -3,7 +3,11 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "font-awesome/css/font-awesome.css";
 
 body {
-	background-image: url(/assets/bg.jpg);
+	background: url(/assets/bg.jpg) no-repeat;
+  -moz-background-size: 100%;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: cover;
 }
 
 a {
@@ -40,6 +44,7 @@ a {
 .prod_title {
   color:white; 
   font-size: 17px; 
+  text-align: left;
 }
 
 .one-colons {
@@ -56,12 +61,22 @@ a {
   color: #589071;
 }
 
+.new-project-plus {
+  font-size: 24px;
+  color: #31496f;
+}
+
 .task_form {
   padding-right: 0px;
 }
 
+.fix {
+  padding-left: 0px;
+}
+
+
 .create_task {
-  padding: 4% 10% 10% 11%;;
+  padding: 4% 22% 6% 11%;
   background: #6ca384;
   border: 2px solid #52896a;
   color: white;
@@ -92,4 +107,9 @@ a {
 .icons-task {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.footer {
+  color: white;
+  padding-top: 4%;
 }

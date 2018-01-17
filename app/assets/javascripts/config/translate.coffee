@@ -10,7 +10,7 @@ angular.module('TodoApp').config [
       'EMAIL': 'Email'
       'PASSWORD': 'Password'
       'CONFIRM_PASSWORD': 'Confirm password'
-      'ADD_PROJECT': 'ADD TODO List'
+      'ADD_PROJECT': 'Add TODO List'
       'CREATE_PROJECT': 'Create Project'
       'ADD_TASK': 'Add Task'
       'UPDATE_PROJECT': 'Update Project'
