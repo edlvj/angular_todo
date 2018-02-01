@@ -1,8 +1,0 @@
-%script{:id => "edit_project.html", :type => "text/ng-template"}
-  .modal-header
-    %h3#modal-title.modal-title {{ 'UPDATE_PROJECT' | translate }}
-  #modal-body.modal-body
-    %form#update_project(ng-submit='update(editProjectForm)' ng-init="editProjectForm = {}")
-      %div.form-group
-        %input.form-control( ng_model='editProjectForm.title' required='' placeholder='Enter new name for project' name='title')
-      %button.btn.btn-primary(type='submit') {{ 'UPDATE_PROJECT' | translate }}

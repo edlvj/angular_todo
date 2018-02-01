@@ -1,6 +1,6 @@
 TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
   ctrl = @
-
+  
   ctrl.create = (form, project) ->
     Task.create(form)
       .success (resp) ->
@@ -8,13 +8,14 @@ TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
       .error (resp) ->
         Flash.create 'warning', resp.data.error
         
-  ctrl.edit = (task_id, project) -> 
+  ctrl.edit = (task, project) -> 
     ctrl.edit_modal = $uibModal.open
       templateUrl: 'edit_task.html'
       size: 'md'
       controller: ($scope) ->
+        $scope.taskForm = task
         $scope.update = (form) ->
-          ctrl.update(task_id, form, project)
+          ctrl.update(task.id, form, project)
           ctrl.edit_modal.close()
           
   ctrl.update = (task_id, form, project) ->
@@ -33,8 +34,8 @@ TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
       .error (resp) ->
         Flash.create 'warning', resp.data.error      
         
-  ctrl.done = (task_id, project) -> 
-    Task.update(task_id, {done: true})
+  ctrl.done = (task_id, project, done) -> 
+    Task.update(task_id, {done: done})
       .success (resp) ->
         index = project.tasks.indexOf($filter('filter')(project.tasks, id: task_id)[0])
         project.tasks[index].done = resp.done
@@ -45,8 +46,13 @@ TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
     handle: '.handle',
     stop:  (e, ui) ->    
       task = ui.item.scope().task
-      task.position = ui.item.index() + 1
-      Task.update(task.id, { priority: task.position })
+      console.log task
+      console.log ui.item
+      console.log ui.item.index() + 1
+      
+      task.priority = ui.item.index() + 1
+
+      Task.update(task.id, { priority: task.priority })
         .error (resp) ->
           Flash.create 'warning', resp.data.error 
   

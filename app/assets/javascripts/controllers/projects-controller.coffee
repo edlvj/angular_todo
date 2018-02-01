@@ -11,10 +11,11 @@ ProjectsController = (Project, $stateParams, $state, $scope, $uibModal, $filter,
         
   ctrl.new = () ->
     ctrl.new_modal = $uibModal.open
-      templateUrl: 'new_project.html'
+      templateUrl: 'project_form.html'
       size: 'md'
       controller: ($scope) ->
-        $scope.create = (form) ->
+        $scope.projectForm = {}
+        $scope.submitForm = (form) ->
           ctrl.create(form)
           ctrl.new_modal.close()
     
@@ -25,13 +26,14 @@ ProjectsController = (Project, $stateParams, $state, $scope, $uibModal, $filter,
       .error (resp) ->
         Flash.create 'warning', resp.data.error
    
-  ctrl.edit = (project_id) ->
+  ctrl.edit = (project) ->
     ctrl.edit_modal = $uibModal.open
-      templateUrl: 'edit_project.html'
+      templateUrl: 'project_form.html'
       size: 'md'
       controller: ($scope) ->
-        $scope.update = (form) ->
-          ctrl.update(project_id, form)
+        $scope.projectForm = project
+        $scope.submitForm = (form) ->
+          ctrl.update(project.id, form)
           ctrl.edit_modal.close()
    
   ctrl.update = (project_id, form) ->

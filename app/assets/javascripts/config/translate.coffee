@@ -11,9 +11,9 @@ angular.module('TodoApp').config [
       'PASSWORD': 'Password'
       'CONFIRM_PASSWORD': 'Confirm password'
       'ADD_PROJECT': 'Add TODO List'
-      'CREATE_PROJECT': 'Create Project'
+      'PROJECT_FORM': 'Project Form',
+      'SAVE': 'Save',
       'ADD_TASK': 'Add Task'
-      'UPDATE_PROJECT': 'Update Project'
       'UPDATE_TASK': 'Update Task'
       'ADD_COMMENT': 'Add Comment'
       'NO_COMMENT': 'No comment'

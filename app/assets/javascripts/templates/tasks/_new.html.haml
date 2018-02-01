@@ -3,7 +3,7 @@
     .col-md-1.col-sm-1.first
       %span.glyphicon.glyphicon-plus.icon-plus
     .col-md-10.col-sm-10.task_form
-      %input#task_title(ng_model='newTaskForm.title' required='' placeholder='Start typing here to create task..' name='title')
+      %input#task_title(ng_model='newTaskForm.title' required='' maxlength='50' placeholder='Start typing here to create task..' name='title')
       %input(ng_model='newTaskForm.project_id' ng-init="newTaskForm.project_id=project.id" type="hidden")
     .col-md-1.col-sm-1.task_form.fix
       %button.create_task(type='submit') {{ 'ADD_TASK' | translate }}
