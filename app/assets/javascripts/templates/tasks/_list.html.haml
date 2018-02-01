@@ -2,7 +2,7 @@
   %li.list-group-item( ng-repeat= 'task in project.tasks ' )
     .row(ng-style= 'task.done ? { "opacity":"0.4" } : {}' )
       .col-md-1.col-sm-1
-        %input(value="true" type="checkbox" ng_model='done' ng-click='tasks.done(task.id, project, done)')
+        %input(value="true" type="checkbox" ng_model='done' ng-click='tasks.done(task.id, project, done)' ng-checked="task.done == true" )
       .col-md-9.col-sm-9
         {{ task.title  }}
         .row.well.text-left.hidden

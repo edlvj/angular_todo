@@ -34,8 +34,6 @@ module Api
     
     def change_priority
       new_priority = params[:task][:priority].to_i
-      p new_priority 
-      p @task.priority
       return true if new_priority == @task.priority
       @task.set_list_position(new_priority)
     end
