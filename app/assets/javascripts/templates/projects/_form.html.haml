@@ -1,0 +1,8 @@
+%script{:id => "project_form.html", :type => "text/ng-template"}
+  .modal-header
+    %h3#modal-title.modal-title {{ 'PROJECT_FORM' | translate }}
+  #modal-body.modal-body
+    %form(ng-submit='submitForm(projectForm)')
+      %div.form-group
+        %input.form-control( ng_model='projectForm.title' required='' maxlength='50' placeholder='Enter name for project' name='title')
+      %button.btn.btn-primary(type='submit') {{ 'SAVE' | translate }}

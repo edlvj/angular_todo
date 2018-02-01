@@ -1,0 +1,16 @@
+%div{ng_repeat: 'project in projects.all'}
+  .container
+    .row.project
+      .col-md-1.col-sm-1.first.icon-top
+        %span.glyphicon.glyphicon-calendar
+      .col-md-9.col-sm-1.second  
+        %h5.prod_title
+          %b {{ project.title }}
+      .col-md-1.col-sm-1.first.icon-top
+        %a#prod_edit(ng-click="projects.edit(project)")
+          %i.glyphicon.glyphicon-pencil.grey-blue.one-colons
+      .col-md-1.first.icon-top
+        %a#prod_drop(ng-click="projects.delete(project.id)")
+          %i.glyphicon.glyphicon-trash.grey-blue
+    %task-create(project = 'project')
+    %task-list(project = 'project')

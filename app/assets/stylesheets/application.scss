@@ -1,0 +1,115 @@
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "font-awesome/css/font-awesome.css";
+
+body {
+	background: url(/assets/bg.jpg) no-repeat;
+  -moz-background-size: 100%;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.row.well {
+  margin-top: 2%;
+}
+
+.logout {
+  position:absolute;
+  top:5px;
+  right:5px;
+  margin:0;
+  padding:5px 3px;
+}
+
+.row.project {
+  background-color: #4371ae;
+  padding: 15px 10px 10px 10px;
+  margin: 0px;
+}
+.icon-top {
+  padding-top: 9px;
+}
+.col-md-1.first {
+  width: 3%;
+}
+.col-md-9.second {
+  width: 89%;
+}
+
+.prod_title {
+  color:white; 
+  font-size: 17px; 
+  text-align: left;
+}
+
+.one-colons {
+  border-right: 1px solid gray;
+  padding-right: 10px;
+}
+
+.grey-blue {
+  color: #99b1d3;
+}
+
+.icon-plus {
+  font-size: 24px;
+  color: #589071;
+}
+
+.new-project-plus {
+  font-size: 24px;
+  color: #31496f;
+}
+
+.task_form {
+  padding-right: 0px;
+}
+
+.fix {
+  padding-left: 0px;
+}
+
+
+.create_task {
+  padding: 4% 22% 6% 11%;
+  background: #6ca384;
+  border: 2px solid #52896a;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.row.task {
+  background-color: #d4d4d4;
+  padding: 15px 10px 10px 10px;
+  margin: 0px;
+}
+
+#task_title {
+  width: 100%;
+  padding: 5px;
+}
+
+.grey {
+  color: grey;
+}
+
+.colons {
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+.icons-task {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.footer {
+  color: white;
+  padding-top: 4%;
+}

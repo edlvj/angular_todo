@@ -1,0 +1,19 @@
+%ul.list-group(ui-sortable="tasks.sort" ng-model="project.tasks")
+  %li.list-group-item( ng-repeat= 'task in project.tasks ' )
+    .row(ng-style= 'task.done ? { "opacity":"0.4" } : {}' )
+      .col-md-1.col-sm-1
+        %input(value="true" type="checkbox" ng_model='done' ng-click='tasks.done(task.id, project, done)' ng-checked="task.done == true" )
+      .col-md-9.col-sm-9
+        {{ task.title  }}
+        .row.well.text-left.hidden
+          %comment-list(project = 'project' task = 'task')
+          %comment-create(project = 'project' task = 'task')
+      .col-md-2.col-sm-2
+        %a.icons-task#show_comment(ng-click='showComments($event)')
+          %i.glyphicon.glyphicon-comment.grey  
+        %a.icons-task.handle
+          %i.glyphicon.glyphicon-sort.grey
+        %a.icons-task.colons#task_edit(ng-click='tasks.edit(task, project)')
+          %i.glyphicon.glyphicon-pencil.grey
+        %a.icons-task#task_drop(ng-click='tasks.delete(task.id, project)')
+          %i.glyphicon.glyphicon-trash.grey

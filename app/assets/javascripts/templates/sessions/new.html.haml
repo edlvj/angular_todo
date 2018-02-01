@@ -1,0 +1,15 @@
+%div.container
+  %h2.text-center {{ 'SIGN_IN' | translate }}
+  %flash-message
+  %form#sign_in( ng-submit='sessions.create(loginForm)' ng-init="loginForm = {}")
+    %div.form-group
+      %label {{ 'EMAIL' | translate }}
+      %input.form-control(ng_model='loginForm.email' required='' type='email' name='email')
+    %div.form-group
+      %label {{ 'PASSWORD' | translate }}
+      %input.form-control(ng_model='loginForm.password'  required='' type='password' name='password')
+    %div.actions
+      %button.btn.btn-success(type='submit')  {{ 'SIGN_IN' | translate }}
+  %div{ng_include: "'layout/_social.html'"}
+  %a.btn.btn-default(ui-sref='sign_up') {{ 'SIGN_UP' | translate }}
+  

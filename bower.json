@@ -1,0 +1,40 @@
+{
+  "name": "todo_angular",
+  "authors": [
+    "Eduard Goryach <gorachedik96@gmail.com>"
+  ],
+  "description": "Todo list",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-token-auth": "0.0.29",
+    "angular-ui-router": "^0.3.1",
+    "angular-cookie": "^4.1.0",
+    "angular-underscore-module": "^1.0.3",
+    "angular-lodash": "^0.1.2",
+    "angular-i18n": "^1.5.8",
+    "angular-translate": "^2.12.1",
+    "angular-sanitize": "^1.5.3",
+    "bootstrap-sass": "^3.3.7",
+    "bootstrap-social": "^5.0.0",
+    "angular-bootstrap": "*",
+    "jquery-ui": "^1.12.1",
+    "ng-file-upload": "^12.2.12",
+    "font-awesome": "~4.7.0",
+    "angular-flash-alert": "^2.4.0",
+    "angular-ui-sortable": "*"
+  },
+  "resolutions": {
+    "angular": "1.5.3"
+  }
+}
