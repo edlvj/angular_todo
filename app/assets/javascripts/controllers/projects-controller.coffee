@@ -8,41 +8,37 @@ ProjectsController = (Project, $stateParams, $state, $scope, $uibModal, $filter,
         ctrl.all = resp
       .error (resp) ->
         Flash.create 'warning', resp
-        
-  ctrl.new = () ->
-    ctrl.new_modal = $uibModal.open
-      templateUrl: 'project_form.html'
-      size: 'md'
-      controller: ($scope) ->
-        $scope.projectForm = {}
-        $scope.submitForm = (form) ->
-          ctrl.create(form)
-          ctrl.new_modal.close()
     
   ctrl.create = (form) ->
-    Project.create(form)
-      .success (resp) ->
-        ctrl.all.push(resp)
-      .error (resp) ->
-        Flash.create 'warning', resp.data.error
-   
-  ctrl.edit = (project) ->
-    ctrl.edit_modal = $uibModal.open
-      templateUrl: 'project_form.html'
-      size: 'md'
-      controller: ($scope) ->
-        $scope.projectForm = project
-        $scope.submitForm = (form) ->
-          ctrl.update(project.id, form)
-          ctrl.edit_modal.close()
+    if form.$valid
+      Project.create({ title: form.title.$modelValue})
+        .success (resp) ->
+          ctrl.all.push(resp)
+        .error (resp) ->
+          console.log resp.error
+          Flash.create 'warning', resp.error
    
   ctrl.update = (project_id, form) ->
-    Project.update(project_id, form)
-      .success (resp) ->
-        index = ctrl.all.indexOf($filter('filter')(ctrl.all, id: project_id)[0]) 
-        ctrl.all[index].title = form.title
-      .error (resp) ->
-        Flash.create 'warning', resp.data.error
+    console.log form
+    if form.$valid
+      Project.update(project_id, { title: form.title.$modelValue})
+        .success (resp) ->
+          index = ctrl.all.indexOf($filter('filter')(ctrl.all, id: project_id)[0]) 
+          ctrl.all[index].title = form.title.$modelValue
+        .error (resp) ->
+          Flash.create 'warning', resp.error
+
+  ctrl.remove = (project) ->
+    ctrl.remove_modal = $uibModal.open
+      templateUrl: 'projects/_delete.html'
+      size: 'md'
+      controller: ($scope) ->
+        $scope.project = project
+        $scope.ok = () ->
+          ctrl.delete(project.id)
+          ctrl.remove_modal.close()
+        $scope.cancel = () ->
+          ctrl.remove_modal.close()
         
   ctrl.delete = (project_id) ->
     Project.delete(project_id)
@@ -50,8 +46,8 @@ ProjectsController = (Project, $stateParams, $state, $scope, $uibModal, $filter,
         index = ctrl.all.indexOf($filter('filter')(ctrl.all, id: project_id)[0])
         ctrl.all.splice(index, 1)
       .error (resp) ->
-        Flash.create 'warning', resp.data.error
-  
+        Flash.create 'warning', resp.error
+
   ctrl.index()
   
   return

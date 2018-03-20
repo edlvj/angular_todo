@@ -2,7 +2,7 @@ RSpec.describe Api::ProjectsController, type: :controller do
   let(:user) { create :user }
   
   before do
-    @project = create :project, user: user
+    @project = create :project, title: 'uniq', user: user
     sign_in user
     request.headers.merge!(user.create_new_auth_token)
   end
@@ -51,5 +51,4 @@ RSpec.describe Api::ProjectsController, type: :controller do
         .to change { Project.count }.by(-1)
     end
   end  
-
 end

@@ -1,0 +1,8 @@
+%script{:id => "task_delete.html", :type => "text/ng-template"}
+.modal-header
+  %h3#modal-title.modal-title Delete task
+#modal-body.modal-body
+  %p.text-left Do you really want to delete "{{ task.title }}" ?
+.modal-footer
+  %button.btn.form-btn(ng-click="ok()") Delete
+  %button.btn.form-btn-white(ng-click="cancel()") Cancel

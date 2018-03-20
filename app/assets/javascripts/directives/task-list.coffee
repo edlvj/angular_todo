@@ -6,12 +6,8 @@ angular.module('TodoApp').directive 'taskList', () ->
   scope:
     project: '='
   link: (scope, elem) ->
-    scope.showComments = ($event) ->
-      elem = $($event.target).parent().parent().parent()
-      elem.find('.row.well').toggleClass 'hidden'
-      return
+    scope.activeDate = (task) ->
+      new Date(task.deadline) > new Date()
     scope.$watch 'task.done', ((newValue, oldValue) ->
       return
-    ), true  
-      
-    return  
+    ), true

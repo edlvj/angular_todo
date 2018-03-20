@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
-    title 'fdffdf'
+    title FFaker::Music.artist
     user
   end
   

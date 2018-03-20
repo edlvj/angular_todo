@@ -1,0 +1,21 @@
+%div(ng-repeat = 'project in projects.all' ng-init="isCollapsed = true; isEdit = false;")
+  .panel-group(ng-show='!isEdit')
+    .panel.panel-default
+      .panel-heading{"ng-class": "{'active': !isCollapsed, 'hovered': isHovered}", "ng-mouseover": "isHovered = true", "ng-mouseleave": "isHovered = false", "ng-init": "isHovered=false"}
+        .col-xs-1#caret(ng-click ="isCollapsed = !isCollapsed")
+          %i.fa.fa-caret-right(ng-show = "isCollapsed")
+          %i.fa.fa-caret-down(ng-show = "!isCollapsed")
+        .col-xs-9
+          %h4.panel-title.text-left
+            %b {{ project.title }}
+        .col-xs-1.text-right#edit_project(ng-show="isHovered")
+          %p(ng-click="isEdit = true")
+            %i.glyphicon.glyphicon-pencil
+        .col-xs-1.text-right#drop_project(ng-show="isHovered")
+          %p(ng-click="projects.remove(project)")
+            %i.glyphicon.glyphicon-trash
+      .panel-collapse.collapse(uib-collapse="isCollapsed")
+        %task-list(project = 'project')
+        .panel-footer
+          %task-new(task='{}' project = 'project')
+  %project-edit(project='project' projects='projects' edit='isEdit' ng-show='isEdit')

@@ -1,0 +1,26 @@
+%script{:id => "task_deadline.html", :type => "text/ng-template"}
+.modal-header
+  %h3#modal-title.modal-title Deadline
+#modal-body.modal-body
+  %form.form-inline(ng-submit='setDeadline(editTask)' name='TaskForm' novalidate ng-init="editTask.deadline = task.deadline || Date")
+    .form-group.mb-2
+      .dropdown
+        %a#day.dropdown-toggle{"data-target" => ".date-panel", "data-toggle" => "dropdown", :href => "", :role => "button"}
+          .input-group
+            %label(for="deadline_date") Date
+            %input.form-control#deadline_date{"data-ng-model" => "editTask.deadline | date :  'dd/MM/y'", name:'deadline', required: ''}
+        .date-panel
+          %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+            %datetimepicker{"data-datetimepicker-config" => "{ dropdownSelector: '#day', minView: 'day' }", "data-ng-model" => "editTask.deadline"}
+    .form-group.mb-2
+      .dropdown
+        %a#time.dropdown-toggle{"data-target" => ".time-panel", "data-toggle" => "dropdown", :href => "", :role => "button"}
+          .input-group
+            %label(for="deadline_time") Time
+            %input.form-control#deadline_time{"data-ng-model" => "editTask.deadline | date :  'hh:mm'"}
+        .time-panel
+          %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+            %datetimepicker{"data-datetimepicker-config" => "{ dropdownSelector: '#time', minView: 'hour', startView: 'hour'}", "data-ng-model" => "editTask.deadline"}
+    .pre-form
+      %button.btn.form-btn(type='submit') Save
+      %a.btn.form-btn-white#cancel(ng-click="cancel()") Cancel

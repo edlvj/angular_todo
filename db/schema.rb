@@ -10,26 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523085021) do
+ActiveRecord::Schema.define(version: 20170517202042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
+    t.string   "attachment"
     t.integer  "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "attachment"
     t.index ["task_id"], name: "index_comments_on_task_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.datetime "completed_at"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "user_id"
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20170523085021) do
     t.string   "title"
     t.boolean  "done"
     t.integer  "priority"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "project_id"
     t.datetime "deadline"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
   end
 
@@ -60,9 +60,7 @@ ActiveRecord::Schema.define(version: 20170523085021) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "name"
-    t.string   "nickname"
-    t.string   "image"
+    t.string   "username"
     t.string   "email"
     t.json     "tokens"
     t.datetime "created_at",                               null: false
@@ -73,5 +71,5 @@ ActiveRecord::Schema.define(version: 20170523085021) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
-  add_foreign_key "comments", "tasks", on_delete: :cascade
+  add_foreign_key "comments", "tasks"
 end

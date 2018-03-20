@@ -2,17 +2,15 @@ angular.module('TodoApp').config [
   '$translateProvider'
   ($translateProvider) ->
     $translateProvider.translations 'en',
-      'APP_NAME': 'Todo App'
+      'APP_NAME': 'Simple ToDo List'
       'SIGN_OUT': 'Sign out'
-      'SIGN_UP': 'Sign up'
-      'SIGN_IN': 'Sign in'
-      'LOG OUT': 'Log out'
-      'EMAIL': 'Email'
+      'SIGN_UP': 'Sign Up'
+      'SIGN_IN': 'Sign In'
+      'USERNAME': 'User name'
       'PASSWORD': 'Password'
       'CONFIRM_PASSWORD': 'Confirm password'
-      'ADD_PROJECT': 'Add TODO List'
-      'PROJECT_FORM': 'Project Form',
-      'SAVE': 'Save',
+      'PROJECTS': 'Projects'
+      'CREATE': 'CREATE',
       'ADD_TASK': 'Add Task'
       'UPDATE_TASK': 'Update Task'
       'ADD_COMMENT': 'Add Comment'

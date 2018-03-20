@@ -1,17 +1,31 @@
-%div.container
-  %h2.text-center {{ 'SIGN_UP' | translate }}
-  %flash-message
-  %form#sign_up(ng-submit='users.create(registrationForm)' role='form' ng-init="registrationForm = {}")
-    %div.form-group
-      %label {{ 'EMAIL' | translate }}
-      %input.form-control(ng_model='registrationForm.email' required='' type='email' name='email' ) 
-    %div.form-group
-      %label {{ 'PASSWORD' | translate }}
-      %input.form-control(ng_model='registrationForm.password' required='' type='password' name='password' )
-    %div.form-group
-      %label {{ 'CONFIRM_PASSWORD' | translate }} 
-      %input.form-control(ng_model='registrationForm.password_confirmation' required='' type='password' name='password_confirmation' )  
-    %div.actions
-      %button.btn.btn-success(type='submit') {{ 'SIGN_UP' | translate }}
-  %div{ng_include: "'layout/_social.html'"}
-  %a.btn.btn-default(ui-sref='sign_in') {{ 'SIGN_IN' | translate }}
+%app-header
+.container     
+  .row#content
+    .col-sm-4.col-sm-offset-4#form-content
+      .pre-form
+        %h3.text-left.title {{ 'SIGN_UP' | translate }}
+        %div.warning{"ng-messages": "registrationForm.username.$error", "ng-if": "registrationForm.$submitted || registrationForm.username.$dirty "}
+          %div{"ng-message" => "required"} 
+            %i.fa.fa-exclamation-circle The field is required.
+          %div{"ng-message" => "minlength"} 
+            %i.fa.fa-exclamation-circle Username is too short. Minimum 3 characters.
+          %div{"ng-message" => "maxlength"} 
+            %i.fa.fa-exclamation-circle Username is too long. Maximum 50 characters.
+        %div.warning{"ng-messages": "registrationForm.password.$error", "ng-if": "registrationForm.$submitted || registrationForm.password.$dirty"}
+          %div{"ng-message" => "required, minlength, maxlength, pattern"} 
+            %i.fa.fa-exclamation-circle Password does not meet minimal requirements. The length should be 8 characters, alphanumeric.
+        %div.warning{"ng-messages": "registrationForm.password_confirmation.$error", "ng-if": "registrationForm.$submitted || registrationForm.password_confirmation.$dirty"}
+          %div{"ng-message" => "pattern"} 
+            %i.fa.fa-exclamation-circle Password and Confirm password fields doesn’t match.
+        %flash-message
+      %form#sign_up(ng-submit='users.create(registrationForm)' name='registrationForm' novalidate)
+        .form-group{"ng-class": "{'has-error': registrationForm.username.$touched && registrationForm.username.$invalid}"}
+          %input.form-control.text-input{'ng-model':'users.registrationForm.username', required:'', name:'username', placeholder:"{{ 'USERNAME' | translate }}", 'ng-minlength': 3, 'ng-maxlength': 50, autofocus:''}
+        .form-group{"ng-class": "{'has-error': registrationForm.password.$touched && registrationForm.password.$invalid }"}
+          %input.form-control.text-input{'ng-model':'users.registrationForm.password', required:'', name:'password', placeholder:"{{ 'PASSWORD' | translate }}", 'ng-minlength': 8, 'ng-maxlength': 8, "ng-pattern": "/^[a-zA-Z0-9]+$/" }
+        .form-group{"ng-class": "{'has-error': registrationForm.password_confirmation.$touched && registrationForm.password_confirmation.$invalid}"}
+          %input.form-control.text-input{'ng-model':'users.registrationForm.password_confirmation', required:'', name:'password_confirmation', placeholder:"{{ 'CONFIRM_PASSWORD' | translate }}", "ng-pattern":"{{users.registrationForm.password}}" }
+        .pre-form
+          %button.btn.form-btn(type='submit') {{ 'SIGN_UP' | translate }}
+      Already a member? 
+      %a(ui-sref='sign_in') Sign In

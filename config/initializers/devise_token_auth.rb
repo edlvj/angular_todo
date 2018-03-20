@@ -1,6 +1,10 @@
 DeviseTokenAuth.setup do |config|
-  
-  config.omniauth_prefix = "/auth"
+
+  config.default_callbacks = false
+ # config.omniauth_prefix = "/auth"
+ # config.reset_password_keys = [ :username ]
+ # config.confirmation_keys = [ :username ]
+  #config.default_callbacks = false
   # By default the authorization headers will change after each request. The
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after

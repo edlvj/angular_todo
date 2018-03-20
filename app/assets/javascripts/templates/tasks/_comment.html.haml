@@ -1,0 +1,7 @@
+%script{:id => "task_deadline.html", :type => "text/ng-template"}
+.modal-header
+  %h3#modal-title.modal-title Add Comment
+#modal-body.modal-body
+  %comment-new(task='task')
+.modal-footer
+  %comment-list(task='task')

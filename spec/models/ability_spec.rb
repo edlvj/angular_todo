@@ -11,5 +11,6 @@ RSpec.describe Ability, type: :model do
    
     it { should be_able_to(:manage, project) }
     it { should be_able_to(:manage, task) }
+    it { should be_able_to(:manage, comment) }
   end
 end

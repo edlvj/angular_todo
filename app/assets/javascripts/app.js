@@ -7,4 +7,7 @@ angular.module('TodoApp', [
   'ngFlash',
   'ui.sortable',
   'ngFileUpload',
+  'ngMessages',
+  'ngSanitize',
+  'ui.bootstrap.datetimepicker'
 ]);

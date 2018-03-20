@@ -1,16 +1,9 @@
-%div.container
-  %div.row
-    %div.col-md-12
-      %div.text-center
-        %h3 SIMPLE TODO LIST 
-        %h5 FROM RUBY GARAGE  
-        %project-show
-    %div.text-center
-      %button.btn.btn-primary.btn-lg(ng-click='projects.new()') 
-        %i.glyphicon.glyphicon-plus.new-project-plus
-        {{ 'ADD_PROJECT' | translate }}
-    %div.text-center.footer
-      &copy; Ruby Garage
-  %div{ng_include: "'projects/_form.html'"}
-  %div{ng_include: "'tasks/_edit.html'"}
-  %button(ng-click='signOut()' class="btn btn-danger logout") {{ 'LOG OUT' | translate }}
+%app-header
+.container        
+  .row#content
+    .col-sm-8.col-sm-offset-2#form-content
+      .pre-form
+        %flash-message
+        %h3.text-left.title {{ 'PROJECTS' | translate }}
+        %project-list(projects='projects')
+        %project-new(project='{}' projects='projects')

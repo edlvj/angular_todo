@@ -1,10 +1,8 @@
-%script{:id => "edit_task.html", :type => "text/ng-template"}
-  .modal-header
-    %h3#modal-title.modal-title {{ 'UPDATE_TASK' | translate }}
-  #modal-body.modal-body
-    %form#update_task(ng-submit='update(taskForm)')
-      %div.form-group
-        %input.form-control(ng_model='taskForm.title' required='' maxlength='50' placeholder='Enter name for task' name='title')
-      %div.form-group
-        %input.form-control.well.well-sm( uib-datepicker-popup ng_model='taskForm.deadline' type="date" datepicker-options="")
-      %button.btn.btn-primary(type='submit') {{ 'UPDATE_TASK' | translate }}
+%form#new-task(ng-submit='tasks.update(task, { title: TaskForm.title.$modelValue })' name='TaskForm' novalidate)
+  .form-group
+    %input.form-control.text-input{'ng-model':'editTask.title', required:'', name:'title', placeholder:"Enter task name", autofocus:'', 'ng-value': 'task.title'}
+  .pre-form
+    %hr
+    %div(ng-if="TaskForm.$valid")
+      %button.btn.form-btn-green(type='submit' ng-click="disableEdit()") Save
+      %button.btn.form-btn-white(ng-click="disableEdit()") Cancel

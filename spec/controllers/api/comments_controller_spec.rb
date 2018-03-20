@@ -26,22 +26,6 @@ RSpec.describe Api::CommentsController, type: :controller do
     end
   end
   
-  describe 'PATCH #update' do
-    let(:valid_params) do
-      { id: @comment.id, comment: attributes_for(:comment, title: 'new comment') }
-    end
-    
-    it 'returns a successful 200 response' do
-      patch :update, params: valid_params
-      expect(response).to be_success
-    end
-    
-    it 'update comment' do
-      expect { patch :update, params: valid_params }
-        .to change { @comment.reload.attributes }
-    end
-  end
-  
   describe 'DELETE #destroy' do
     it 'returns a successful 200 response' do
       delete :destroy, params: { id: @comment.id }

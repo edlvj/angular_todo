@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    title 'test_comm'
+    title 'test_comment'
     task
   end
 end

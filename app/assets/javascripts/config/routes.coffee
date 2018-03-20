@@ -19,7 +19,8 @@ angular.module('TodoApp').config ['$stateProvider', '$urlRouterProvider', '$loca
     controller: 'UsersController'
     controllerAs: 'users'
     templateUrl: 'users/new.html'
-    resolve: auth: to_main
+    resolve: 
+      auth: to_main
     
   $logProvider.debugEnabled(true)
   $locationProvider.html5Mode(true)

@@ -23,21 +23,6 @@ RSpec.describe Api::TasksController, type: :controller do
     end
   end
   
-  describe 'PATCH #update' do
-    let(:valid_params) do
-      { id: @task.id ,task: attributes_for(:task, title: 'task title') }
-    end
-
-    it 'returns a successful 200 response' do
-      patch :update, params: valid_params
-      expect(response).to be_success
-    end
-    it 'update task' do
-      expect {  patch :update, params: valid_params }
-        .to change { @task.reload.attributes }
-    end
-  end
-  
   describe 'DELETE #destroy' do
     it 'returns a successful 200 response' do
       delete :destroy, params: { id: @task.id }
@@ -48,7 +33,4 @@ RSpec.describe Api::TasksController, type: :controller do
         .to change { Task.count }.by(-1)
     end
   end  
-  
-  
- 
 end  

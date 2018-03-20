@@ -1,3 +1,8 @@
-%form.form-inline#new_comment(ng-submit='comments.create(newCommentForm, task)' ng-init="newCommentForm = {}")
-  %input.form-control.input-sm(ng_model='newCommentForm.title' required='' placeholder='Enter new comment' type= 'text' name='title')
-  %button.btn(type='submit')  {{ 'ADD_COMMENT' | translate }}
+%form#add_comment(ng-submit='comments.create(newCommentForm, task)' name='newCommentForm' novalidate)
+  .form-group
+    %textarea.form-control(ng_model='comment.title' required='' placeholder='Enter Your Comment' type='text' name='title' ng-minlength='3' ng-maxlength='50')
+    %span.glyphicon.glyphicon-paperclip.clinch(ngf_select = "comments.setAttachment($file)" name='attachment' ng_model='comment.attachment')
+  %img(ngf-src="comment.attachment")  
+  .pre-form.text-left
+    %button.btn.form-btn(type='submit') Save
+    %a.btn.form-btn-white#cancel(ng-click='cancel()') Cancel

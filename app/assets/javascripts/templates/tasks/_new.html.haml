@@ -1,9 +1,8 @@
-%form#new_task(ng-submit='tasks.create(newTaskForm, project)' ng-init="newTaskForm = {}")
-  .row.task
-    .col-md-1.col-sm-1.first
-      %span.glyphicon.glyphicon-plus.icon-plus
-    .col-md-10.col-sm-10.task_form
-      %input#task_title(ng_model='newTaskForm.title' required='' maxlength='50' placeholder='Start typing here to create task..' name='title')
-      %input(ng_model='newTaskForm.project_id' ng-init="newTaskForm.project_id=project.id" type="hidden")
-    .col-md-1.col-sm-1.task_form.fix
-      %button.create_task(type='submit') {{ 'ADD_TASK' | translate }}
+%form#add_task(ng-submit='tasks.create(TaskForm, project)' name='TaskForm' novalidate)
+  .form-group
+    %input.form-control.text-input{'ng-model':'task.title', required:'', name:'title', placeholder:"Enter task name", autofocus:''}
+  .pre-form(ng-if="TaskForm.$valid")
+    %hr
+    %div(ng-if="TaskForm.$valid")
+      %button.btn.form-btn-green(type='submit') Add Task
+      %a.btn.form-btn-white#cancel(ng-click='cancel()') Cancel

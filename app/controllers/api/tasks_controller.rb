@@ -6,7 +6,7 @@ module Api
       if @task.save
         render json: @task
       else
-        render json: { error: @task.errors.full_messages }
+        render json: { error: @task.errors.full_messages }, status: 422
       end
     end
     
@@ -14,7 +14,7 @@ module Api
       if change_priority && @task.update_attributes(task_params)
         render json: @task
       else
-        render json: { error: @task.errors.full_messages }
+        render json: { error: @task.errors.full_messages }, status: 422
       end
     end
     
@@ -22,7 +22,7 @@ module Api
       if @task.destroy
         render json: @task
       else
-        render json: { error: @task.errors.full_messages }
+        render json: { error: @task.errors.full_messages }, status: 422
       end
     end
     

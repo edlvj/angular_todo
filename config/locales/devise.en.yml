@@ -1,0 +1,6 @@
+en:
+  devise_token_auth:
+    sessions:
+      bad_credentials: "Incorrect login or password"
+    registrations:
+      username_already_exists: "This login is already registered. Please, log in."

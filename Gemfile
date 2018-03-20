@@ -5,11 +5,8 @@ gem 'pg', '~> 0.18'
 gem 'cancancan'
 
 gem 'devise_token_auth'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-github'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.10.0.rc4'
 gem 'carrierwave'
 gem 'font-awesome-sass'
 gem 'angular-rails-templates'
@@ -24,10 +21,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'acts_as_list'
+gem 'file_validators'
 
 group :development, :test do
   gem 'byebug'
   gem 'pry'
+  gem 'simplecov', require: false, group: :test
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'rspec-rails'
@@ -42,7 +41,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'  , '~> 3.4.0'
+  gem 'chromedriver-helper' , '~> 1.1.0'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'json_matchers'

@@ -1,16 +1,13 @@
-SessionsController = ($scope, $auth, $state, Omniauth, Flash) ->
+SessionsController = ($scope, $auth, $state, Flash) ->
   ctrl = @
+  ctrl.loginForm = {}
   
   ctrl.create = (form) ->
-    $auth.submitLogin(form)
-    
-  $scope.social = (provider) ->
-    $auth.authenticate(provider).then (
-      (response) ->
-        $state.go 'main'
-      ), (response) ->
-        Flash.create 'warning', 'Social Auth Error'
-        
+    $auth.submitLogin({
+      username: form.username.$modelValue,
+      password: form.password.$modelValue
+    })
+          
   $scope.$on 'auth:login-success', (ev, user) ->
     $state.go 'main'
     
@@ -23,7 +20,6 @@ angular.module('TodoApp').controller 'SessionsController', [
   '$scope',
   '$auth',
   '$state',
-  'Omniauth',
   'Flash',
   SessionsController
 ]

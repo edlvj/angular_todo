@@ -10,5 +10,11 @@
 //= require angular-bootstrap
 //= require angular-flash-alert
 //= require angular-ui-sortable/sortable
+//= require angular-sanitize/angular-sanitize
+//= require angular-messages/angular-messages
+//= require moment/moment
+//= require bootstrap/dist/js/bootstrap
+//= require angularjs-bootstrap-datetimepicker/src/js/datetimepicker
+//= require angularjs-bootstrap-datetimepicker/src/js/datetimepicker.templates
 
 //= require_tree .
