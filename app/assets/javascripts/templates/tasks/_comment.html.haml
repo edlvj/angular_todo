@@ -1,7 +1,8 @@
 %script{:id => "task_deadline.html", :type => "text/ng-template"}
 .modal-header
+  %button(type="button" class="close" ng-click="$dismiss()") &times;
   %h3#modal-title.modal-title Add Comment
 #modal-body.modal-body
-  %comment-new(task='task')
+  %comment-new(task='task' modal='modalInstance')
 .modal-footer
   %comment-list(task='task')

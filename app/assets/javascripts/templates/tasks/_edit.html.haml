@@ -1,8 +1,8 @@
-%form#new-task(ng-submit='tasks.update(task, { title: TaskForm.title.$modelValue })' name='TaskForm' novalidate)
-  .form-group
+%form#update_task(ng-submit='tasks.update(project, task, { title: TaskForm.title.$modelValue })' name='TaskForm' novalidate)
+  .form-group(ng-init= 'beforeEdit = task')
     %input.form-control.text-input{'ng-model':'editTask.title', required:'', name:'title', placeholder:"Enter task name", autofocus:'', 'ng-value': 'task.title'}
   .pre-form
     %hr
     %div(ng-if="TaskForm.$valid")
       %button.btn.form-btn-green(type='submit' ng-click="disableEdit()") Save
-      %button.btn.form-btn-white(ng-click="disableEdit()") Cancel
+      %a.btn.form-btn-white#cancel(ng-click="cancel()") Cancel

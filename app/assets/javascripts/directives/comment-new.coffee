@@ -6,6 +6,8 @@ angular.module('TodoApp').directive 'commentNew', () ->
   scope:
     project: '='
     task: '='
+    modal: '='
   link: (scope, elem) ->
-    scope.cancel = () ->  
-      scope.comment = {}  
+    scope.cancel = () ->
+      scope.comment = {}
+      scope.modal.close()  

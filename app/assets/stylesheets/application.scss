@@ -63,6 +63,7 @@ body {
 }
 
 .warning {
+  display: -webkit-inline-box;
   color: red;
 }
 
@@ -174,4 +175,27 @@ input[type='checkbox']:checked:after {
   color: #a0a0a0;
   display: inline;
   font-size: 12px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+#file_input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  padding-top: 8%;
+  opacity: 0;
 }

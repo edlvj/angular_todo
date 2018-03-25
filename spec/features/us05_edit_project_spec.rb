@@ -9,11 +9,13 @@ feature 'Edit a project', type: :feature, js: true do
     @project = create :project, user: user
     sleep 1
   end
-  
-  scenario 'When click on “Save” button' do
+
+  before do
     first('.panel-heading').hover
     find('#edit_project').click
-    
+  end  
+  
+  scenario 'When click on “Save” button' do
     edit_project title: 'kiss'
     
     within "project-list" do
@@ -22,9 +24,10 @@ feature 'Edit a project', type: :feature, js: true do
   end
 
   scenario 'When click on “Cancel” link' do
-    first('.panel-heading').hover
-    find('#edit_project').click
-    find_link('Cancel').click
+    within "#update_project" do
+      fill_in "title", with: 'lost'
+      find_by_id("cancel").click
+    end 
     
     within "project-list" do
       expect(page).to have_content(@project.title)

@@ -14,13 +14,13 @@ feature 'Add a task', type: :feature, js: true do
   context '#show' do
     before { first('#caret').click }
     
-    scenario '​list of tasks' do
+    scenario '​have list of tasks' do
       within "task-list" do
         expect(page).to have_content(@task.title)
       end
     end  
 
-    scenario '​form inside a project' do
+    scenario '​have form inside a project' do
       within "task-new" do
         expect(page).to have_field('title')
       end  

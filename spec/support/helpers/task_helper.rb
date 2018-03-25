@@ -7,12 +7,11 @@ module Support
       end 
     end  
     
-    def update_task(form_id = 'update_task', options)
+    def edit_task(form_id = 'update_task', options)
       within "##{form_id}" do
         fill_in "title", with: options[:title]
-        click_button "Update Task"
+        click_button "Save"
       end 
-    end 
-      
+    end   
   end
 end

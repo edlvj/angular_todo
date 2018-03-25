@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :task do
-    title 'new task'
+    title FFaker::Product.product_name
     priority 1
   end
   

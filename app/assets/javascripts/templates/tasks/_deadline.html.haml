@@ -1,5 +1,6 @@
 %script{:id => "task_deadline.html", :type => "text/ng-template"}
 .modal-header
+  %button(type="button" class="close" ng-click="$dismiss()") &times;
   %h3#modal-title.modal-title Deadline
 #modal-body.modal-body
   %form.form-inline(ng-submit='setDeadline(editTask)' name='TaskForm' novalidate ng-init="editTask.deadline = task.deadline || Date")

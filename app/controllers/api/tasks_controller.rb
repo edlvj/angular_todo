@@ -25,7 +25,7 @@ module Api
         render json: { error: @task.errors.full_messages }, status: 422
       end
     end
-    
+
     private
 
     def task_params
@@ -33,9 +33,16 @@ module Api
     end
     
     def change_priority
-      new_priority = params[:task][:priority].to_i
-      return true if new_priority == @task.priority
-      @task.set_list_position(new_priority)
+      return true unless params[:task][:move_type]
+      
+      case params[:task][:move_type].to_sym
+      when :up
+        @task.increment_position
+      when :down
+        @task.decrement_position
+      else
+        true
+      end
     end
   end
 end

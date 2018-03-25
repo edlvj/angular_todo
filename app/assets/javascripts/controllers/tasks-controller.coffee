@@ -34,9 +34,8 @@ TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
       templateUrl: 'tasks/_comment.html'
       size: 'md'
       controller: ($scope) ->
+        $scope.modalInstance = ctrl.comment_modal
         $scope.task = task
-        $scope.cancel = () ->
-          ctrl.comment_modal.close()
 
   ctrl.remove = (task, project) ->
     ctrl.remove_modal = $uibModal.open
@@ -59,25 +58,30 @@ TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
       .error (resp) ->
         Flash.create 'warning', resp.error      
         
-  ctrl.done = (task, project, done) -> 
+  ctrl.done = (task, project, done) ->
     ctrl.update(project, task, { done: done || false })
       .success (resp) ->
         index = project.tasks.indexOf($filter('filter')(project.tasks, id: task.id)[0])
         project.tasks[index].done = resp.done
-  
-  ctrl.move = (project, index, new_index) ->
-    # temp = project.tasks[new_index];
-    # project.tasks[new_index] = project.tasks[index];
-    # project.tasks[index] = temp;
-    console.log tasks[index].id
-    console.log new_index
-    #ctrl.update(project, tasks[index], { priority: new_index })
+        if allDone(project.tasks)
+          Flash.create 'success', "<b>Well done!</b> You’re successfully completed all the task."
 
   ctrl.moveUp = (project, index) ->
-    ctrl.move(project, index, index - 1);
+    move(project, index, index - 1, 'up');
 
   ctrl.moveDown = (project, index) ->
-    ctrl.move(project, index, index + 1);
+    move(project, index, index + 1, 'down');
+
+  move = (project, index, new_index, type) ->
+    temp = project.tasks[new_index];
+    project.tasks[new_index] = project.tasks[index];
+    project.tasks[index] = temp;
+    ctrl.update(project, project.tasks[index], { priority: new_index, move_type: type })  
+
+  allDone = (tasks) ->
+    for task in tasks
+      return false if !task.done
+    return true  
   
   return
   

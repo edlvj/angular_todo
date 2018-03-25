@@ -19,7 +19,6 @@ ProjectsController = (Project, $stateParams, $state, $scope, $uibModal, $filter,
           Flash.create 'warning', resp.error
    
   ctrl.update = (project_id, form) ->
-    console.log form
     if form.$valid
       Project.update(project_id, { title: form.title.$modelValue})
         .success (resp) ->

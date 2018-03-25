@@ -8,6 +8,6 @@ angular.module('TodoApp').directive 'projectEdit', () ->
   link: (scope, elem) ->
     scope.disableEdit = () ->
       scope.edit = false
-    scope.cancel = () ->  
-      scope.project.title = scope.beforeEdit.title
+    scope.cancel = () ->
+      scope.editProject.title = scope.beforeEdit.title
       scope.disableEdit()

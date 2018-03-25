@@ -9,8 +9,8 @@ feature 'Add project', type: :feature, js: true do
     sleep 1
   end
 
-  context '#show_buttons' do 
-    scenario 'when emtpy title not show button' do
+  context '#show buttons' do 
+    scenario 'When emtpy title not show button' do
       expect(page).not_to have_button('Create Project')
       expect(page).not_to have_button('Cancel')
     end

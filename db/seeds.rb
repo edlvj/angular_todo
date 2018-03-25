@@ -10,7 +10,7 @@ User.find_each do |user|
       user: user
     )
 
-    rand(2..10).times do
+    rand(2..5).times do
       Task.create! do |task|
         task.title = FFaker::Job.title
         task.project_id = project.id

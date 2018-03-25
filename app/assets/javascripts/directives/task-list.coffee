@@ -8,6 +8,3 @@ angular.module('TodoApp').directive 'taskList', () ->
   link: (scope, elem) ->
     scope.activeDate = (task) ->
       new Date(task.deadline) > new Date()
-    scope.$watch 'task.done', ((newValue, oldValue) ->
-      return
-    ), true
