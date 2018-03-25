@@ -2,12 +2,12 @@ class Users::RegistrationsController < DeviseTokenAuth::RegistrationsController
   def create
     @resource            = resource_class.new(sign_up_params.except(:confirm_success_url))
     @resource.provider   = 'email'
+    @resource.uid = sign_up_params[:username]
     
     if resource_class.case_insensitive_keys.include?(:username)
-      @resource.uid = sign_up_params[:username]
       @resource.username = sign_up_params[:username]
     end  
-    
+ 
     # honor devise configuration for case_insensitive_keys
     if resource_class.case_insensitive_keys.include?(:email)
       @resource.email = sign_up_params[:email].try :downcase
