@@ -13,7 +13,7 @@
 //= require angular-sanitize/angular-sanitize
 //= require angular-messages/angular-messages
 //= require moment/moment
-//= require bootstrap/dist/js/bootstrap
+//= require bootstrap-sass/assets/javascripts/bootstrap
 //= require angularjs-bootstrap-datetimepicker/src/js/datetimepicker
 //= require angularjs-bootstrap-datetimepicker/src/js/datetimepicker.templates
 
