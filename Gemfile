@@ -26,7 +26,6 @@ gem 'file_validators'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
-  gem 'simplecov', require: false, group: :test
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'rspec-rails'
@@ -40,6 +39,7 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov', require: false
   gem 'capybara'
   gem 'selenium-webdriver'  , '~> 3.4.0'
   gem 'chromedriver-helper' , '~> 1.1.0'

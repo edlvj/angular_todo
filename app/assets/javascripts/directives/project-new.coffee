@@ -7,3 +7,6 @@ angular.module('TodoApp').directive 'projectNew', () ->
   link: (scope, elem) ->
     scope.cancel = () ->  
       scope.project = {}
+    scope.onSubmit = () ->
+      scope.projects.create(scope.ProjectForm)
+      scope.cancel()

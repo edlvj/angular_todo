@@ -15,7 +15,7 @@
         .form-group{"ng-class": "{'has-error': loginForm.username.$touched && loginForm.username.$invalid}"}
           %input.form-control.text-input{'ng-model':'sessions.loginForm.username', required:'', name:'username', placeholder:"{{ 'USERNAME' | translate }}"}
         .form-group{"ng-class": "{'has-error': loginForm.password.$touched && loginForm.password.$invalid }"}
-          %input.form-control.text-input{'ng-model':'sessions.loginForm.password', required:'', name:'password', placeholder:"{{ 'PASSWORD' | translate }}" }
+          %input.form-control.text-input{'ng-model':'sessions.loginForm.password', required:'', name:'password', placeholder:"{{ 'PASSWORD' | translate }}", type: "password"}
         .pre-form
           %button.btn.form-btn(type='submit') Sign In
       Don't have an account? 

@@ -7,15 +7,14 @@ ProjectsController = (Project, $stateParams, $state, $scope, $uibModal, $filter,
       .success (resp) ->
         ctrl.all = resp
       .error (resp) ->
-        Flash.create 'warning', resp
-    
+        Flash.create 'warning', resp   
+
   ctrl.create = (form) ->
     if form.$valid
       Project.create({ title: form.title.$modelValue})
-        .success (resp) ->
+        .success (resp) -> 
           ctrl.all.push(resp)
         .error (resp) ->
-          console.log resp.error
           Flash.create 'warning', resp.error
    
   ctrl.update = (project_id, form) ->

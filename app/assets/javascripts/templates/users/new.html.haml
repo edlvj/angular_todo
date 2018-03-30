@@ -22,9 +22,9 @@
         .form-group{"ng-class": "{'has-error': registrationForm.username.$touched && registrationForm.username.$invalid}"}
           %input.form-control.text-input{'ng-model':'users.registrationForm.username', required:'', name:'username', placeholder:"{{ 'USERNAME' | translate }}", 'ng-minlength': 3, 'ng-maxlength': 50, autofocus:''}
         .form-group{"ng-class": "{'has-error': registrationForm.password.$touched && registrationForm.password.$invalid }"}
-          %input.form-control.text-input{'ng-model':'users.registrationForm.password', required:'', name:'password', placeholder:"{{ 'PASSWORD' | translate }}", 'ng-minlength': 8, 'ng-maxlength': 8, "ng-pattern": "/^[a-zA-Z0-9]+$/" }
+          %input.form-control.text-input{'ng-model':'users.registrationForm.password', required:'', name:'password', placeholder:"{{ 'PASSWORD' | translate }}", 'ng-minlength': 8, 'ng-maxlength': 8, "ng-pattern": "/^[a-zA-Z0-9]+$/", type: "password" }
         .form-group{"ng-class": "{'has-error': registrationForm.password_confirmation.$touched && registrationForm.password_confirmation.$invalid}"}
-          %input.form-control.text-input{'ng-model':'users.registrationForm.password_confirmation', required:'', name:'password_confirmation', placeholder:"{{ 'CONFIRM_PASSWORD' | translate }}", "ng-pattern":"{{users.registrationForm.password}}" }
+          %input.form-control.text-input{'ng-model':'users.registrationForm.password_confirmation', required:'', name:'password_confirmation', placeholder:"{{ 'CONFIRM_PASSWORD' | translate }}", "ng-pattern":"{{users.registrationForm.password}}", type: "password" }
         .pre-form
           %button.btn.form-btn(type='submit') {{ 'SIGN_UP' | translate }}
       Already a member? 
