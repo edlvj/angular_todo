@@ -1,4 +1,4 @@
-%form#add_comment(ng-submit='comments.create(newCommentForm, task)' name='newCommentForm' novalidate)
+%form#add_comment(ng-submit='onSubmit()' name='newCommentForm' novalidate)
   %flash-message
   .form-group
     %textarea.form-control(ng_model='comment.title' required='' placeholder='Enter Your Comment' type='text' name='title' ng-minlength='3' ng-maxlength='50')

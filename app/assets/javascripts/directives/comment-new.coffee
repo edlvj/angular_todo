@@ -10,4 +10,7 @@ angular.module('TodoApp').directive 'commentNew', () ->
   link: (scope, elem) ->
     scope.cancel = () ->
       scope.comment = {}
-      scope.modal.close()  
+      scope.modal.close()
+    scope.onSubmit = () ->
+      scope.comments.create(scope.newCommentForm, scope.task)
+      scope.comment = {}  

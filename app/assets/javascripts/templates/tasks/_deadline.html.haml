@@ -9,7 +9,7 @@
         %a#day.dropdown-toggle{"data-target" => ".date-panel", "data-toggle" => "dropdown", :href => "", :role => "button"}
           .input-group
             %label(for="deadline_date") Date
-            %input.form-control#deadline_date{"data-ng-model" => "editTask.deadline | date :  'dd/MM/y'", name:'deadline', required: ''}
+            %input.form-control#deadline_date{"ng-value" => "editTask.deadline | date :  'dd/MM/y'", name:'deadline', required: ''}
         .date-panel
           %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
             %datetimepicker{"data-datetimepicker-config" => "{ dropdownSelector: '#day', minView: 'day' }", "data-ng-model" => "editTask.deadline"}
@@ -18,7 +18,7 @@
         %a#time.dropdown-toggle{"data-target" => ".time-panel", "data-toggle" => "dropdown", :href => "", :role => "button"}
           .input-group
             %label(for="deadline_time") Time
-            %input.form-control#deadline_time{"data-ng-model" => "editTask.deadline | date :  'hh:mm'"}
+            %input.form-control#deadline_time{"ng-value" => 'editTask.deadline | date: "hh:mm"'}
         .time-panel
           %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
             %datetimepicker{"data-datetimepicker-config" => "{ dropdownSelector: '#time', minView: 'hour', startView: 'hour'}", "data-ng-model" => "editTask.deadline"}

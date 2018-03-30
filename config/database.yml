@@ -6,6 +6,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: angular_todo_development
   username: postgres
   password: 123
