@@ -37,9 +37,6 @@ CommentsController = (Comment, $state, $scope, $filter, Flash, Upload) ->
          title: form.title.$modelValue,
          task_id: task.id 
       fileFormDataName: 'comment[attachment]'
-          
-    
-  return
 
 angular.module('TodoApp').controller 'CommentsController', [
   'Comment',

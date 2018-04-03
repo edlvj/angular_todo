@@ -6,7 +6,6 @@ feature 'Add project', type: :feature, js: true do
 
   background do
     sign_in username: user.username,  password: user.password
-    sleep 1
   end
 
   context '#show buttons' do 

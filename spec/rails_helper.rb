@@ -10,7 +10,7 @@ require 'simplecov'
 SimpleCov.start
 
 %w(support).each do |folder|
-  Dir[Rails.root.join("spec/#{folder}/**/*.rb")].each do |component|
+  Dir[Rails.root.join("spec/#{folder}/*.rb")].each do |component|
     require component
   end
 end

@@ -3,7 +3,7 @@ require 'date'
 FactoryGirl.define do
   factory :user do
     username { FFaker::Internet.user_name }
-    password { '11111111' }
+    password { FFaker::Internet.password(8, 8) }
     password_confirmation { password }
     uid { username }
   end

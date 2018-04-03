@@ -5,7 +5,6 @@ feature 'Sign up', type: :feature, js: true do
   scenario 'when user have valid credentials' do
     sign_up attributes_for(:user)
     expect(page).to have_content 'You’re successfully registered!'
-    sleep 1
     expect(page).to have_content 'Projects'
   end
 

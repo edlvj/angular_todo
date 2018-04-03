@@ -7,7 +7,6 @@ feature 'Edit a project', type: :feature, js: true do
   background do
     sign_in username: user.username,  password: user.password
     @project = create :project, user: user
-    sleep 1
   end
 
   before do

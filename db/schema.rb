@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170517202042) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.string   "attachment"
     t.integer  "task_id"
     t.datetime "created_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170517202042) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",        null: false
     t.datetime "completed_at"
     t.integer  "user_id"
     t.datetime "created_at",   null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170517202042) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.boolean  "done"
     t.integer  "priority"
     t.integer  "project_id"

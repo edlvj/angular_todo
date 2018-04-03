@@ -2,7 +2,6 @@
 //= require angular
 //= require ng-file-upload
 //= require jquery-ui/jquery-ui
-//= require angular-translate
 //= require angular-ui-router
 //= require angular-cookie
 //= require angular-rails-templates

@@ -8,11 +8,9 @@ feature 'Delete a comment', type: :feature, js: true do
     @task = create :task, project: @project
     @comment = create :comment, task: @task 
     sign_in username: user.username,  password: user.password
-    sleep 1
   end
 
   before do
-    sleep 1
     first('#caret').click
   
     within 'task-list' do
@@ -30,7 +28,6 @@ feature 'Delete a comment', type: :feature, js: true do
 
     within 'task-list' do
       first('.list-group-item').hover
-      sleep 2
       
       expect(page).not_to have_css('#comment_count')  
     end

@@ -8,11 +8,9 @@ feature 'Prioritization', type: :feature, js: true do
     @task = create :task, project: @project, title: "1", priority: 1
     @task_2 = create :task, project: @project, title: "2", priority: 2
     sign_in username: user.username,  password: user.password
-    sleep 1
   end
 
   before :each do 
-    sleep 1
     first('#caret').click
   end
 

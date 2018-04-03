@@ -8,11 +8,9 @@ feature '​Task is Done', type: :feature, js: true do
     @task = create :task, project: @project
     @task_2 = create :task, project: @project
     sign_in username: user.username,  password: user.password
-    sleep 1
   end
 
   before do
-    sleep 1
     first('#caret').click
   
     within 'task-list' do

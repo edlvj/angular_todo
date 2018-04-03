@@ -22,7 +22,6 @@
     "angular-cookie": "^4.1.0",
     "angular-underscore-module": "^1.0.3",
     "angular-lodash": "^0.1.2",
-    "angular-i18n": "^1.5.8",
     "angular-translate": "^2.12.1",
     "angular-sanitize": "1.5.3",
     "bootstrap-sass": "^3.3.7",

@@ -8,11 +8,9 @@ feature 'Edit a task', type: :feature, js: true do
     @project = create :project, user: user
     @task = create :task, project: @project
     sign_in username: user.username,  password: user.password
-    sleep 1
   end
 
   before do
-    sleep 1
     first('#caret').click
   
     within 'task-list' do

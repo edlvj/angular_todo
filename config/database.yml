@@ -9,7 +9,7 @@ development:
   host: localhost
   database: angular_todo_development
   username: postgres
-  password: 123
+  password: helsetjenester
 
 test:
   <<: *default
