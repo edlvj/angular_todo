@@ -1,0 +1,8 @@
+%form#add_task(ng-submit='tasks.create(TaskForm, project)' name='TaskForm' novalidate)
+  .form-group
+    %input.form-control.text-input{'ng-model':'task.title', required:'', name:'title', placeholder:"Enter task name", autofocus:''}
+  .pre-form(ng-if="TaskForm.$valid")
+    %hr
+    %div(ng-if="TaskForm.$valid")
+      %button.btn.form-btn-green(type='submit') Add Task
+      %a.btn.form-btn-white#cancel(ng-click='cancel()') Cancel

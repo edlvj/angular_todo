@@ -1,0 +1,22 @@
+%app-header
+.container
+  .row#content
+    .col-sm-4.col-sm-offset-4#form-content
+      .pre-form
+        %h3.text-left.title Sign In
+        %div.warning{"ng-messages": "loginForm.username.$error", "ng-if": "login.$submitted || loginForm.username.$dirty "}
+          %div{"ng-message" => "required"} 
+            %i.fa.fa-exclamation-circle The field is required
+        %div.warning{"ng-messages": "loginForm.password.$error", "ng-if": "loginForm.$submitted || loginForm.password.$dirty"}
+          %div{"ng-message" => "required"} 
+            %i.fa.fa-exclamation-circle The field is required
+        %flash-message
+      %form#sign_in(ng-submit='sessions.create(loginForm)' name='loginForm' novalidate)
+        .form-group{"ng-class": "{'has-error': loginForm.username.$touched && loginForm.username.$invalid}"}
+          %input.form-control.text-input{'ng-model':'sessions.loginForm.username', required:'', name:'username', placeholder:"user name"}
+        .form-group{"ng-class": "{'has-error': loginForm.password.$touched && loginForm.password.$invalid }"}
+          %input.form-control.text-input{'ng-model':'sessions.loginForm.password', required:'', name:'password', placeholder:"password", type: "password"}
+        .pre-form
+          %button.btn.form-btn(type='submit') Sign In
+      Don't have an account? 
+      %a(ui-sref='sign_up') Sign Up

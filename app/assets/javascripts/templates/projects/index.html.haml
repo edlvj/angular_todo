@@ -1,0 +1,9 @@
+%app-header
+.container        
+  .row#content
+    .col-sm-8.col-sm-offset-2#form-content
+      .pre-form
+        %flash-message
+        %h3.text-left.title Projects
+        %project-list(projects='projects')
+        %project-new(project='{}' projects='projects')

@@ -1,0 +1,7 @@
+%form#update_project(ng-submit='projects.update(project.id, ProjectForm)' name='ProjectForm' novalidate)
+  .form-group(ng-init='beforeEdit = project')
+    %input.form-control.text-input{'ng-model':'editProject.title', required:'', name:'title', placeholder:"Enter a new project name", autofocus:'',  'ng-value': 'project.title'}
+  %div(style="padding-top: 2%;")
+  %div(ng-if="ProjectForm.$valid")
+    %button.btn.form-btn(type='submit' ng-click='disableEdit()') Save
+    %a.btn.form-btn-white#cancel(ng-click='cancel()') Cancel

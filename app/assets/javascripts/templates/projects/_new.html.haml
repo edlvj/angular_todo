@@ -1,0 +1,7 @@
+%form#add_project(ng-submit='onSubmit()' name='ProjectForm' novalidate)
+  .form-group
+    %input.form-control.text-input{'ng-model':'project.title', required:'', name:'title', placeholder:"Enter project name ...", autofocus:''}
+    %div(style="padding-top: 2%;")
+    %div(ng-if="ProjectForm.$valid")
+      %button.btn.form-btn(type='submit') Create Project
+      %button.btn.form-btn-white(ng-click='cancel()') Cancel

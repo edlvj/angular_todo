@@ -1,0 +1,8 @@
+%div(ng_repeat= 'comment in task.comments')
+  .text-left
+    %p.time_comment {{ comment.created_at | date: 'dd/MM/y' }}
+    %i#drop_comment(ng_click="comments.delete(task, comment)")
+      %i.glyphicon.glyphicon-trash
+    %p {{ comment.title }}
+    %a(ng-if='comment.attachment.url')
+      %img(ng-src="{{comment.attachment.url}}" style="width: 250px;")

@@ -1,0 +1,10 @@
+%form#add_comment(ng-submit='onSubmit()' name='newCommentForm' novalidate)
+  %flash-message
+  .form-group
+    %textarea.form-control(ng_model='comment.title' required='' placeholder='Enter Your Comment' type='text' name='title' ng-minlength='3' ng-maxlength='50')
+    %span.glyphicon.glyphicon-paperclip.clinch
+    %input#file_input(ngf_select = "comments.setAttachment($file)" name='attachment' ng_model='comment.attachment' type="file")
+  %img(ngf-src="comment.attachment" style="width: 250px;")  
+  .pre-form.text-left
+    %button.btn.form-btn(type='submit') Save
+    %a.btn.form-btn-white#cancel(ng-click='cancel()') Cancel

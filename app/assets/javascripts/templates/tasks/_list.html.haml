@@ -1,0 +1,22 @@
+%ul.list-group(ng-model="project.tasks")
+  %li.list-group-item{ "ng-repeat": 'task in project.tasks', "ng-init": "isEdit = false; isHovered=false;", "ng-class": "{'hovered': isHovered}", "ng-mouseover": "isHovered = true", "ng-mouseleave": "isHovered = false"}
+    .row.panel-heading(ng-show='!isEdit')
+      .col-sm-1(ng-show="isHovered")
+        %i.glyphicon.glyphicon-arrow-up.arrow#move_up(ng-click="$first || tasks.moveUp(project, $index)")
+        %i.glyphicon.glyphicon-arrow-down.arrow#move_down(ng-click="$last || tasks.moveDown(project, $index)")
+      .col-sm-1
+        %label(for="done")
+        %input#done(value="true" type="checkbox" ng_model='done' ng-click='tasks.done(task, project, done)' ng-checked="task.done == true")
+      .col-sm-6
+        %p(ng-class="{'checked': task.done}") {{ task.title }}
+        %p#deadline(ng-show="task.deadline" ng-class= 'activeDate(task) ? "green" : "red"') {{ task.deadline | date :  'dd/MM/y hh:mm' }}
+      .col-sm-1(ng-show="isHovered" style="display: flex;")
+        %p#comment_count(ng-show="task.comments.length >= 1") {{ task.comments.length }}
+        %i.fa.fa-comment#add_comment(ng-click="tasks.comment(task)")
+      .col-sm-1(ng-show="isHovered")
+        %i.glyphicon.glyphicon-time#deadline_task(ng-click="tasks.deadline(project, task)")
+      .col-sm-1(ng-show="isHovered")
+        %i.glyphicon.glyphicon-pencil#edit_task(ng-click="isEdit = true")
+      .col-sm-1(ng-show="isHovered")
+        %i.glyphicon.glyphicon-trash#remove_task(ng-click='tasks.remove(task, project)')
+    %task-edit(project= 'project' task='task' tasks='tasks' edit='isEdit' ng-show='isEdit')
