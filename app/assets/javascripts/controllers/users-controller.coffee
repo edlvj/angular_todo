@@ -9,7 +9,7 @@ UsersController = ($scope, $auth, $state, Flash) ->
         password: form.password.$modelValue,
         password_confirmation: form.password_confirmation.$modelValue
       }).then ( (response) ->
-        Flash.create 'success', "<b>Well done!</b> You’re successfully registered!"
+        Flash.create 'success', $translate.instant('flash.success_register')
         $auth.submitLogin({
           username: form.username.$modelValue,
           password: form.password.$modelValue

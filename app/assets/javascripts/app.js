@@ -8,5 +8,6 @@ angular.module('TodoApp', [
   'ngFileUpload',
   'ngMessages',
   'ngSanitize',
-  'ui.bootstrap.datetimepicker'
+  'ui.bootstrap.datetimepicker',
+  'pascalprecht.translate'
 ]);

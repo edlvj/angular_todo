@@ -1,4 +1,4 @@
-TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
+TasksController = (Task, $state, $scope, $uibModal, $filter, $translate, Flash) ->
   ctrl = @
   
   ctrl.create = (form, project) ->
@@ -64,7 +64,7 @@ TasksController = (Task, $state, $scope, $uibModal, $filter, Flash) ->
         index = project.tasks.indexOf($filter('filter')(project.tasks, id: task.id)[0])
         project.tasks[index].done = resp.done
         if allDone(project.tasks)
-          Flash.create 'success', "<b>Well done!</b> You’re successfully completed all the task."
+          Flash.create 'success', $translate.instant('flash.done_all_task')
 
   ctrl.moveUp = (project, index) ->
     move(project, index, index - 1, 'up');
@@ -91,6 +91,7 @@ angular.module('TodoApp').controller 'TasksController', [
   '$scope',
   '$uibModal',
   '$filter',
+  '$translate',
   'Flash',
   TasksController
 ]

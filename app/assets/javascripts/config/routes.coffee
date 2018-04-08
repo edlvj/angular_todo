@@ -27,7 +27,7 @@ angular.module('TodoApp').config ['$stateProvider', '$urlRouterProvider', '$loca
   $urlRouterProvider.otherwise '/'
 ]
 
-to_sign_in = ($auth, $state) ->
+to_sign_in = ($auth, $state, $translate) ->
   $auth.validateUser().catch (res) ->
     $state.go 'sign_in'
 
